@@ -27,6 +27,15 @@ export const getAllEmployeeAction = () => {
   };
 };
 
+export const cretaeEmployeeAction = (payload) => {
+  return async (dispatch) => {
+    const url = `http://localhost:8080/api/employee/`;
+    await axios.post(url, payload);
+
+    // update the ui. TODO
+  };
+};
+
 // REDURE FOR STATE UPDTE
 function EmployeeReducer(state = initState, action) {
   switch (action.type) {
