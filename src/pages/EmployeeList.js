@@ -6,7 +6,9 @@ export const EmployeeList = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
-  useEffect(() => dispatch(getAllEmployeeAction()), []);
+  useEffect(() => {
+    dispatch(getAllEmployeeAction());
+  }, []);
 
   return (
     <div>
