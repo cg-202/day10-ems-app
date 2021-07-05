@@ -20,7 +20,13 @@ export const EmployeeUpsert = () => {
   const updateUserName = (e) => setUserName(e.target.value);
   const updatePassword = (e) => setPassword(e.target.value);
   const updateEmail = (e) => setEmail(e.target.value);
-  const updateMobile = (e) => setMobile(e.target.value);
+  const updateMobile = (e) => {
+    console.log(e.target.value);
+
+    // replacing all the non-digit ^\d with empty string.
+    const numericValue = e.target.value.replace(/[^\d]/gi, "");
+    setMobile(numericValue);
+  };
 
   const addNewEmployee = (e) => {
     // WRITE LOGIC FOR THE VALIDATION :: FORM_ELEMENT / FORM_TAG
