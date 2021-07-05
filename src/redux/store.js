@@ -37,6 +37,11 @@ export const cretaeEmployeeAction = (payload) => {
 
     // update the ui. TODO
     dispatch({ type: PROGRESS_ACTION_TYPE, payload: true });
+
+    // after 5 second PROGRESS :: FALSE AGAIN
+    setTimeout(() => {
+      dispatch({ type: PROGRESS_ACTION_TYPE, payload: false });
+    }, 5000);
   };
 };
 
