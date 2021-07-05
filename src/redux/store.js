@@ -106,6 +106,13 @@ export const authenticateUserAction = (payload) => {
   };
 };
 
+export const signOutAction = () => {
+  return async (dispatch) => {
+    console.log("signout");
+    dispatch({ type: AUTH_SUCCESS_ACTION_TYPE, payload: false });
+  };
+};
+
 // REDURE FOR STATE UPDTE
 function EmployeeReducer(state = initState, action) {
   switch (action.type) {
