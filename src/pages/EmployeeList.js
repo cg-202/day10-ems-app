@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteEmployeeAction, getAllEmployeeAction } from "../redux/store";
+import { AppNav } from "./AppNav";
 
 export const EmployeeList = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,8 @@ export const EmployeeList = () => {
 
   return (
     <div>
+      <AppNav />
+
       <div className="alert alert-secondary">
         <h3>Employee List</h3>
       </div>
