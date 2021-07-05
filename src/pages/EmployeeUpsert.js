@@ -68,6 +68,8 @@ export const EmployeeUpsert = () => {
             onChange={updateFirstName}
             className="form-control form-control-lg mb-1"
             placeholder="Enter First Name"
+            minLength="3"
+            maxLength="30"
             required
           />
         </div>
@@ -79,6 +81,8 @@ export const EmployeeUpsert = () => {
             onChange={updateLastName}
             className="form-control form-control-lg mb-1"
             placeholder="Enter Last Name"
+            minLength="3"
+            maxLength="30"
             required
           />
         </div>
@@ -90,6 +94,8 @@ export const EmployeeUpsert = () => {
             onChange={updateUserName}
             className="form-control form-control-lg mb-1"
             placeholder="Enter User Name"
+            minLength="3"
+            maxLength="30"
             required
           />
         </div>
@@ -101,6 +107,8 @@ export const EmployeeUpsert = () => {
             onChange={updatePassword}
             className="form-control form-control-lg mb-1"
             placeholder="Enter Password"
+            minLength="6"
+            maxLength="30"
             required
           />
         </div>
@@ -112,6 +120,8 @@ export const EmployeeUpsert = () => {
             onChange={updateEmail}
             className="form-control form-control-lg mb-1"
             placeholder="Enter Email"
+            minLength="6"
+            maxLength="30"
             required
           />
         </div>
@@ -123,6 +133,8 @@ export const EmployeeUpsert = () => {
             onChange={updateMobile}
             className="form-control form-control-lg mb-1"
             placeholder="Enter Mobile"
+            minLength="10"
+            maxLength="10"
             required
           />
         </div>
