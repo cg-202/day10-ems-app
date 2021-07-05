@@ -1,12 +1,13 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { authenticateUserAction } from "../redux/store";
 
 export const UserSignIn = () => {
   const formEl = useRef();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  let history = useHistory();
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +29,12 @@ export const UserSignIn = () => {
       formEl.current.classList.add("was-validated");
     }
   };
+
+  // REACT ROUTE DOM
+  if (state.authSuccess) {
+    // redirecting the user /employee-list page;
+    history.push("/employee-list");
+  }
 
   return (
     <div
