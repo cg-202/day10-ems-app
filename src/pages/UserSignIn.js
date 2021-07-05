@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 export const UserSignIn = () => {
   const formEl = useRef();
@@ -53,6 +54,16 @@ export const UserSignIn = () => {
               onClick={signInUser}
               className="btn btn-info btn-lg w-100"
             />
+          </div>
+
+          <div>
+            <Link to="/user-signup">
+              <input
+                type="button"
+                value="Signup Here"
+                className="btn btn-link w-100"
+              />
+            </Link>
           </div>
         </form>
       </div>
