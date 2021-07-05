@@ -115,7 +115,7 @@ export const EmployeeUpsert = () => {
 
         <div>
           <input
-            type="text"
+            type="email"
             value={email}
             onChange={updateEmail}
             className="form-control form-control-lg mb-1"
