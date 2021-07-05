@@ -22,10 +22,11 @@ export const EmployeeUpsert = () => {
   const updateEmail = (e) => setEmail(e.target.value);
   const updateMobile = (e) => setMobile(e.target.value);
 
-  const addNewEmployee = () => {
+  const addNewEmployee = (e) => {
     // WRITE LOGIC FOR THE VALIDATION :: FORM_ELEMENT / FORM_TAG
     // console.log(formEl.current);
     // console.log(formEl.current.checkValidity());
+    e.preventDefault();
 
     const isFormValid = formEl.current.checkValidity();
     if (isFormValid) {
@@ -48,6 +49,7 @@ export const EmployeeUpsert = () => {
       setEmail("");
       setMobile("");
     } else {
+      e.stopPropagation();
       formEl.current.classList.add("was-validated");
     }
   };
