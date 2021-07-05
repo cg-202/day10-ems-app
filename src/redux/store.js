@@ -7,7 +7,7 @@ const initState = {
   progress: false,
 };
 
-// ACTION TYPES
+// ACTION TYPES :: EMPLOYEE :: ENITY1
 const PROGRESS_ACTION_TYPE = "PROGRESS_ACTION_TYPE";
 const EMPLOYEE_GET_ALL_ACTION_TYPE = "EMPLOYEE_GET_ALL_ACTION_TYPE";
 const EMPLOYEE_GET_BY_ID_ACTION_TYPE = "EMPLOYEE_GET_BY_ID_ACTION_TYPE";
@@ -53,6 +53,25 @@ export const deleteEmployeeAction = (payload) => {
 
     // Upate the UI TODO :: Fetch The Updated List
     dispatch(getAllEmployeeAction());
+  };
+};
+
+// ACTION TYPE FOR USER :: ENTITY2
+const USER_CREATE_ACTION_TYPE = "USER_CREATE_ACTION_TYPE";
+
+export const userCreateAction = (payload) => {
+  return async (dispatch) => {
+    // API CALL :: SERVER CALL
+    const url = `http://localhost:8080/api/employee/`;
+    await axios.post(url, payload);
+
+    // TODO for UI
+    dispatch({ type: PROGRESS_ACTION_TYPE, payload: true });
+
+    // after 5 second PROGRESS :: FALSE AGAIN
+    setTimeout(() => {
+      dispatch({ type: PROGRESS_ACTION_TYPE, payload: false });
+    }, 5000);
   };
 };
 
