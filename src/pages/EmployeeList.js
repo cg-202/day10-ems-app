@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllEmployeeAction } from "../redux/store";
+import { deleteEmployeeAction, getAllEmployeeAction } from "../redux/store";
 
 export const EmployeeList = () => {
   const dispatch = useDispatch();
@@ -9,6 +9,12 @@ export const EmployeeList = () => {
   useEffect(() => {
     dispatch(getAllEmployeeAction());
   }, []);
+
+  const deleteRecord = (item) => {
+    console.log("DELETE RECORD", item.id);
+    // dispatch the call.
+    dispatch(deleteEmployeeAction(item));
+  };
 
   return (
     <div>
@@ -24,6 +30,7 @@ export const EmployeeList = () => {
             <th scope="col">Password</th>
             <th scope="col">Email</th>
             <th scope="col">Mobile</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -34,6 +41,15 @@ export const EmployeeList = () => {
               <td>{"*****"}</td>
               <td>{item.email}</td>
               <td>{item.mobile}</td>
+              <td>
+                <input
+                  type="button"
+                  value="Delete"
+                  // onClick={deleteRecord}
+                  onClick={() => deleteRecord(item)}
+                  className="btn btn-outline-danger btn-sm"
+                />
+              </td>
             </tr>
           ))}
         </tbody>
