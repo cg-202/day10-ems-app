@@ -66,6 +66,12 @@ export const EmployeeUpsert = () => {
         <h3>Employee Craete</h3>
       </div>
 
+      {state.progress && (
+        <div className="mx-4 alert alert-success">
+          Employee Creation Success
+        </div>
+      )}
+
       <form ref={formEl} className="mx-4 needs-validation" noValidate>
         <div>
           <input
