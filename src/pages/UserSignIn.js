@@ -1,8 +1,18 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { authenticateUserAction } from "../redux/store";
 
 export const UserSignIn = () => {
   const formEl = useRef();
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const updateUserName = (e) => setUserName(e.target.value);
+  const updatePassword = (e) => setPassword(e.target.value);
 
   const signInUser = (e) => {
     e.preventDefault();
@@ -12,8 +22,7 @@ export const UserSignIn = () => {
 
     if (isFormValid) {
       // dispatch the call to redux ::for API CALL
-      // TODO
-      // ON SUCCESS WILL REDIRECT TO NExT PAGE
+      dispatch(authenticateUserAction({ userName, password }));
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -28,11 +37,19 @@ export const UserSignIn = () => {
       <div className="w-50">
         <h1 className="text-center alert alert-info">Application Sign</h1>
 
+        {state.authFailure && (
+          <h6 className="text-center alert alert-danger">
+            Invalid Credentials
+          </h6>
+        )}
+
         <form ref={formEl} className="needs-validation" noValidate>
           <div>
             <input
               type="text"
               placeholder="Enter Username"
+              value={userName}
+              onChange={updateUserName}
               className="form-control form-control-lg mb-2"
               required
             />
@@ -41,6 +58,8 @@ export const UserSignIn = () => {
           <div>
             <input
               type="password"
+              value={password}
+              onChange={updatePassword}
               placeholder="Enter Password"
               className="form-control form-control-lg mb-2"
               required
