@@ -25,7 +25,7 @@ export const AppNav = () => {
         <h6>EMP-UPSERT</h6>
       </Link>
 
-      <h6 className="ml-1" onClick={signOut} role="button">
+      <h6 className="ml-2" onClick={signOut} role="button">
         Sign out
       </h6>
     </div>
