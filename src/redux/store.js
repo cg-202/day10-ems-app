@@ -6,12 +6,14 @@ import {
 import thunk from "redux-thunk";
 import { EmployeeReducer } from "./EmployeeReducer";
 import { SocialReducer } from "./SocialReducer";
+import { TodoReducer } from "./TodoReducer";
 import { UserReducer } from "./UserReducer";
 
 const rootReducer = combineReducers({
   employee: EmployeeReducer,
   user: UserReducer,
   social: SocialReducer,
+  todo: TodoReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

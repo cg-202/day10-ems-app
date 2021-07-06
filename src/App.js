@@ -14,6 +14,8 @@ import { AppNav } from "./pages/AppNav";
 import { useSelector } from "react-redux";
 import { SocialBook } from "./pages/SocialBook";
 import { SocialProfile } from "./pages/SocialProfile";
+import { TodoList } from "./pages/TodoList";
+import { TodoUpsert } from "./pages/TodoUpsert";
 
 function App() {
   const history = useHistory();
@@ -34,9 +36,15 @@ function App() {
 
       <Route exact path="/" component={UserSignIn} />
 
+      {/** Social APP */}
       <Route exact path="/social-book" component={SocialBook} />
       <Route exact path="/social-profile" component={SocialProfile} />
 
+      {/** ToDO APP */}
+      <Route exact path="/todo-list" component={TodoList} />
+      <Route exact path="/todo-upsert" component={TodoUpsert} />
+
+      {/** Demo IN the Class */}
       <Route exact path="/employee-upsert" component={EmployeeUpsert} />
       <Route exact path="/employee-list" component={EmployeeList} />
 
