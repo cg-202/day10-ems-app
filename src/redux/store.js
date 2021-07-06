@@ -5,11 +5,13 @@ import {
 } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 import { EmployeeReducer } from "./EmployeeReducer";
+import { SocialReducer } from "./SocialReducer";
 import { UserReducer } from "./UserReducer";
 
 const rootReducer = combineReducers({
   employee: EmployeeReducer,
   user: UserReducer,
+  social: SocialReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
