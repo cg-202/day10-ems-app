@@ -28,6 +28,8 @@ function App() {
 
   return (
     <>
+      {authSuccessFromStorage === "1" && <AppNav />}
+
       <Route exact path="/" component={UserSignIn} />
       <Route exact path="/employee-upsert" component={EmployeeUpsert} />
       <Route exact path="/employee-list" component={EmployeeList} />

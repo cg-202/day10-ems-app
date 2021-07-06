@@ -63,8 +63,6 @@ export const EmployeeUpsert = () => {
 
   return (
     <div>
-      <AppNav />
-
       <div className="alert alert-secondary">
         <h3>Employee Craete</h3>
       </div>
