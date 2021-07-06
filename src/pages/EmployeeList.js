@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteEmployeeAction, getAllEmployeeAction } from "../redux/store";
+import {
+  deleteEmployeeAction,
+  getAllEmployeeAction,
+} from "../redux/EmployeeReducer";
 import { AppNav } from "./AppNav";
 
 export const EmployeeList = () => {
@@ -35,7 +38,7 @@ export const EmployeeList = () => {
           </tr>
         </thead>
         <tbody>
-          {state.employeeList.map((item, index) => (
+          {state.employee.employeeList.map((item, index) => (
             <tr key={index}>
               <th scope="row">{item.id}</th>
               <td>{item.userName}</td>

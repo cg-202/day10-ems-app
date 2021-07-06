@@ -1,7 +1,7 @@
 import { Nav, Navbar } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { signOutAction } from "../redux/store";
+import { signOutAction } from "../redux/UserReducer";
 
 export const AppNav = () => {
   const dispatch = useDispatch();

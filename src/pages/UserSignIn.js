@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { authenticateUserAction } from "../redux/store";
+import { authenticateUserAction } from "../redux/UserReducer";
 
 export const UserSignIn = () => {
   const formEl = useRef();
@@ -31,7 +31,7 @@ export const UserSignIn = () => {
   };
 
   // REACT ROUTE DOM
-  if (state.authSuccess === true) {
+  if (state.user.authSuccess === true) {
     // redirecting the user /employee-list page;
     history.push("/employee-list");
   }
@@ -44,7 +44,7 @@ export const UserSignIn = () => {
       <div className="w-50">
         <h1 className="text-center alert alert-info">Application Sign</h1>
 
-        {state.authFailure && (
+        {state.user.authFailure && (
           <h6 className="text-center alert alert-danger">
             Invalid Credentials
           </h6>

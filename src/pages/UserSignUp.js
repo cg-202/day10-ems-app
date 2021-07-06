@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { userCreateAction } from "../redux/store";
+import { userCreateAction } from "../redux/UserReducer";
 
 export const UserSignUp = () => {
   const formEl = useRef();
@@ -53,7 +53,7 @@ export const UserSignUp = () => {
           Application Signup Here
         </h2>
 
-        {state.progress && (
+        {state.user.progress && (
           <h6 className="text-center alert alert-success">
             Registeratio Success!!
           </h6>
