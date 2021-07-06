@@ -8,7 +8,7 @@ const initState = {
 
   // AUTH FAILS => TRUE
   authFailure: false,
-  authSuccess: false,
+  authSuccess: false, // store this informatino in session/localstorage
 };
 
 // ACTION TYPES :: EMPLOYEE :: ENITY1
@@ -93,6 +93,10 @@ export const authenticateUserAction = (payload) => {
       // updat the UI:: THIS IS TRICKY
       dispatch({ type: AUTH_SUCCESS_ACTION_TYPE, payload: true });
 
+      // Will store the success information in storage.
+      // TODO will save into the storage
+      localStorage.setItem("authSuccess", "1");
+
       // NOT DOING THE ACTIVITY OF 5 SECONDS :: page will be redirected to anohter page.
     } else {
       // INVALID USER :: AUTH FAILS
@@ -109,6 +113,10 @@ export const authenticateUserAction = (payload) => {
 export const signOutAction = () => {
   return async (dispatch) => {
     console.log("signout");
+
+    // remove the storage/cookies
+    localStorage.removeItem("authSuccess");
+
     dispatch({ type: AUTH_SUCCESS_ACTION_TYPE, payload: false });
   };
 };

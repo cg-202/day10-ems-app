@@ -17,7 +17,12 @@ function App() {
   const history = useHistory();
   const state = useSelector((state) => state);
 
-  if (!state.authSuccess) {
+  // Will chekck from the storage
+  /*if (!state.authSuccess) {
+    history.push("/user-signin");
+  }*/
+  const authSuccessFromStorage = localStorage.getItem("authSuccess");
+  if (authSuccessFromStorage !== "1") {
     history.push("/user-signin");
   }
 
