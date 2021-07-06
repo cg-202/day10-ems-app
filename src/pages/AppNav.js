@@ -4,9 +4,11 @@ import { signOutAction } from "../redux/store";
 
 export const AppNav = () => {
   const dispatch = useDispatch();
-  let history = useHistory();
+  const history = useHistory();
 
   const signOut = () => {
+    // Logical Operation.
+    // cookies / sessino are getting removed from the browser
     dispatch(signOutAction());
 
     // redirect the user to login page.
