@@ -1,14 +1,26 @@
-import { applyMiddleware, createStore } from "@reduxjs/toolkit";
+import {
+  applyMiddleware,
+  combineReducers,
+  createStore,
+} from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
+import { EmployeeReducer } from "./EmployeeReducer";
+import { SocialReducer } from "./SocialReducer";
+import { TodoReducer } from "./TodoReducer";
+import { UserReducer } from "./UserReducer";
 
-const initState = {
-  employeeList: [],
-};
+const rootReducer = combineReducers({
+  employee: EmployeeReducer,
+  user: UserReducer,
+  social: SocialReducer,
+  todo: TodoReducer,
+});
 
-function EmployeeReducer(state = initState, action) {
-  return state;
-}
-
-// MIDDLEWARE FOR THE ASYNC OPOERATION
-const store = createStore(EmployeeReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 export { store };
+
+// HOW TO ACCESS THE STORE IN COMPOENNT
+// state.employeeList :: when there was only one reducer.
+// state.authSuccess :: when there was only one reducer.
+// state.employee.employeeList
+// state.user.authSuccess
