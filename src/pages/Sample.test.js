@@ -1,5 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { Sample } from "./Sample";
+
+afterEach(() => cleanup());
 
 test("Testing Sample Component", () => {
   render(<Sample />);
