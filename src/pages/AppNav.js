@@ -17,17 +17,22 @@ export const AppNav = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="#home">EMS APP</Navbar.Brand>
-      <Nav className="ml-auto">
-        <Nav.Link as={Link} to="/employee-list">
-          EMP-LIST
-        </Nav.Link>
-        <Nav.Link as={Link} to="/employee-upsert">
-          EMP-UPSERT
-        </Nav.Link>
-        <Nav.Link onClick={signOut}>SIGN OUT</Nav.Link>
-      </Nav>
+
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Link as={Link} to="/employee-list">
+            EMP-LIST
+          </Nav.Link>
+          <Nav.Link as={Link} to="/employee-upsert">
+            EMP-UPSERT
+          </Nav.Link>
+          <Nav.Link onClick={signOut}>SIGN OUT</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 };
