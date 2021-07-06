@@ -18,19 +18,19 @@ export const AppNav = () => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="#home">EMS APP</Navbar.Brand>
+      <Navbar.Brand href="#home">SOCIAL APP</Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link as={Link} to="/employee-list">
-            EMP-LIST
+          <Nav.Link as={Link} to="/social-book">
+            Socila Book
           </Nav.Link>
-          <Nav.Link as={Link} to="/employee-upsert">
-            EMP-UPSERT
+          <Nav.Link as={Link} to="/social-profile">
+            Social Profile
           </Nav.Link>
-          <Nav.Link onClick={signOut}>SIGN OUT</Nav.Link>
+          <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

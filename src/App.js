@@ -12,6 +12,8 @@ import { UserSignIn } from "./pages/UserSignIn";
 import { UserSignUp } from "./pages/UserSignUp";
 import { AppNav } from "./pages/AppNav";
 import { useSelector } from "react-redux";
+import { SocialBook } from "./pages/SocialBook";
+import { SocialProfile } from "./pages/SocialProfile";
 
 function App() {
   const history = useHistory();
@@ -31,6 +33,10 @@ function App() {
       {authSuccessFromStorage === "1" && <AppNav />}
 
       <Route exact path="/" component={UserSignIn} />
+
+      <Route exact path="/social-book" component={SocialBook} />
+      <Route exact path="/social-profile" component={SocialProfile} />
+
       <Route exact path="/employee-upsert" component={EmployeeUpsert} />
       <Route exact path="/employee-list" component={EmployeeList} />
 
