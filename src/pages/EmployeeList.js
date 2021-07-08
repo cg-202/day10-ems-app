@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {
   deleteEmployeeAction,
   getAllEmployeeAction,
+  updateRenderAction,
 } from "../redux/EmployeeReducer";
 import { AppNav } from "./AppNav";
 
 export const EmployeeList = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
@@ -18,6 +21,16 @@ export const EmployeeList = () => {
     console.log("DELETE RECORD", item.id);
     // dispatch the call.
     dispatch(deleteEmployeeAction(item));
+  };
+
+  // 2
+  const updateRecord = (item) => {
+    console.log("Update Record", item);
+
+    // 3
+    dispatch(updateRenderAction(item));
+
+    history.push("/employee-upsert");
   };
 
   return (
@@ -46,6 +59,13 @@ export const EmployeeList = () => {
               <td>{item.email}</td>
               <td>{item.mobile}</td>
               <td>
+                <input
+                  type="button"
+                  value="Update"
+                  className="btn btn-outline-secondary btn-sm  mr-1"
+                  // onClick={updateRecord} :1
+                  onClick={() => updateRecord(item)}
+                />
                 <input
                   type="button"
                   value="Delete"

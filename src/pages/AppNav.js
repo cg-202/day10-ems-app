@@ -24,17 +24,11 @@ export const AppNav = () => {
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link as={Link} to="/todo-list">
-            Todo List
+          <Nav.Link as={Link} to="/employee-list">
+            Employee List
           </Nav.Link>
-          <Nav.Link as={Link} to="/todo-upsert">
-            Todo Upsert
-          </Nav.Link>
-          <Nav.Link as={Link} to="/social-book">
-            Socila Book
-          </Nav.Link>
-          <Nav.Link as={Link} to="/social-profile">
-            Social Profile
+          <Nav.Link as={Link} to="/employee-upsert">
+            Employee Upsert
           </Nav.Link>
           <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
         </Nav>
