@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { cretaeEmployeeAction } from "../redux/EmployeeReducer";
+import {
+  cretaeEmployeeAction,
+  updateEmployeeAction,
+} from "../redux/EmployeeReducer";
 import { AppNav } from "./AppNav";
 
 export const EmployeeUpsert = () => {
@@ -63,6 +66,36 @@ export const EmployeeUpsert = () => {
     }
   };
 
+  const updateEmployee = (e) => {
+    e.preventDefault();
+
+    const isFormValid = formEl.current.checkValidity();
+    if (isFormValid) {
+      dispatch(
+        updateEmployeeAction({
+          id: state.employee.uref.id,
+          firstName,
+          lastName,
+          userName,
+          password,
+          email,
+          mobile,
+        })
+      );
+
+      // clear the form
+      setFirstName("");
+      setLastName("");
+      setUserName("");
+      setPassword("");
+      setEmail("");
+      setMobile("");
+    } else {
+      e.stopPropagation();
+      formEl.current.classList.add("was-validated");
+    }
+  };
+
   return (
     <div>
       <div className="alert alert-secondary">
@@ -74,9 +107,7 @@ export const EmployeeUpsert = () => {
       </div>
 
       {state.employee.progress && (
-        <div className="mx-4 alert alert-success">
-          Employee Creation Success
-        </div>
+        <div className="mx-4 alert alert-success">Operation Success</div>
       )}
 
       <form ref={formEl} className="mx-4 needs-validation" noValidate>
@@ -162,7 +193,7 @@ export const EmployeeUpsert = () => {
           {state.employee.uref.id ? (
             <input
               type="button"
-              // onClick={addNewEmployee}
+              onClick={updateEmployee}
               value="Update Employee"
               className="btn btn-lg btn-secondary w-100"
             />
