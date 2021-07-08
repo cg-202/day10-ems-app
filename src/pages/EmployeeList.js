@@ -27,9 +27,10 @@ export const EmployeeList = () => {
   const updateRecord = (item) => {
     console.log("Update Record", item);
 
-    // 3
+    // 3 :: updating the store
     dispatch(updateRenderAction(item));
 
+    // navigateing to the page
     history.push("/employee-upsert");
   };
 

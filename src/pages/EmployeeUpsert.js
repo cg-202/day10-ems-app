@@ -7,14 +7,16 @@ import { AppNav } from "./AppNav";
 export const EmployeeUpsert = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  console.log(state);
+
   const formEl = useRef();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
+  const [firstName, setFirstName] = useState(state.employee.uref.firstName);
+  const [lastName, setLastName] = useState(state.employee.uref.lastName);
+  const [userName, setUserName] = useState(state.employee.uref.userName);
+  const [password, setPassword] = useState(state.employee.uref.password);
+  const [email, setEmail] = useState(state.employee.uref.email);
+  const [mobile, setMobile] = useState(state.employee.uref.mobile);
 
   const updateFirstName = (e) => setFirstName(e.target.value);
   const updateLastName = (e) => setLastName(e.target.value);
@@ -64,7 +66,11 @@ export const EmployeeUpsert = () => {
   return (
     <div>
       <div className="alert alert-secondary">
-        <h3>Employee Craete</h3>
+        {state.employee.uref.id ? (
+          <h5>Employee Update</h5>
+        ) : (
+          <h5>Employee Create</h5>
+        )}
       </div>
 
       {state.employee.progress && (
@@ -153,12 +159,21 @@ export const EmployeeUpsert = () => {
         </div>
 
         <div>
-          <input
-            type="button"
-            onClick={addNewEmployee}
-            value="Add Employee"
-            className="btn btn-lg btn-secondary w-100"
-          />
+          {state.employee.uref.id ? (
+            <input
+              type="button"
+              // onClick={addNewEmployee}
+              value="Update Employee"
+              className="btn btn-lg btn-secondary w-100"
+            />
+          ) : (
+            <input
+              type="button"
+              onClick={addNewEmployee}
+              value="Add Employee"
+              className="btn btn-lg btn-secondary w-100"
+            />
+          )}
         </div>
       </form>
     </div>
